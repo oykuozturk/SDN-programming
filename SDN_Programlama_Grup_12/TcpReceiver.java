@@ -5,13 +5,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.Random;
-
 public class TcpReceiver {
 	private static ServerSocket serverSocket;
 	private static final int PORT = 2001;
 	private static final int PORT2 = 2006;
 	public static int PortNo = 0;
-
 	public static void main(String[] args) {
 		System.out.println("Port aciliyor...");
 		Random r = new Random();
@@ -20,61 +18,52 @@ public class TcpReceiver {
 			try {
 				serverSocket = new ServerSocket(PORT);
 				System.out.println("Gidilen Router 1 ");
-			} catch (IOException ioEx) {
-				System.out.println(
-						"Receiver baglanti noktasina baglanamiyor");
+			}
+			catch (IOException ioEx) {
+				System.out.println("Receiver baglanti noktasina baglanamiyor");
 				System.exit(1);
 			}
-		} else {
+		} 
+		else {
 			try {
 				serverSocket = new ServerSocket(PORT2);
 				System.out.println("Gidilen Router 2 ");
-			} catch (IOException ioEx) {
-				System.out.println(
-						"Receiver baglanti noktasina baglanamiyor");
+			} 
+			catch (IOException ioEx) {
+				System.out.println("Receiver baglanti noktasina baglanamiyor");
 				System.exit(1);
 			}
 		}
-
 		handleRouter();
-
 	}
-
 	private static void handleRouter() {
 		Socket link = null;
 		try {
 			link = serverSocket.accept();
 			Scanner input = new Scanner(link.getInputStream());
-			PrintWriter output = new PrintWriter(
-					link.getOutputStream(), true);
+			PrintWriter output = new PrintWriter(link.getOutputStream(), true);
 			int numMessages = 0;
 			String message = input.nextLine();
-
 			while (!message.equals("Kapatildi"))
-
 			{
 				output.println("ACK" + numMessages);
 				numMessages++;
 				System.out.println(numMessages + ":" + message);
 				message = input.nextLine();
-
 			}
-
 		}
-
 		catch (IOException ioEx) {
 			ioEx.printStackTrace();
-		} finally {
+		} 
+		finally {
 			try {
-				System.out.println(
-						"\n* Baglanti kesiliyor...*");
+				System.out.println("Baglanti kesildi.");
 				link.close();
-			} catch (IOException ioEx) {
-				System.out.println(
-						"Baglanti kesilemiyor");
+			}
+			catch (IOException ioEx) {
+				System.out.println("Baglanti kesilemiyor!");
 				System.exit(1);
 			}
 		}
 	}
-
 }
