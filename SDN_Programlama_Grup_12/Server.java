@@ -7,13 +7,13 @@ public class Server {
     public Server(int port) {
         try {
             server = new ServerSocket(port);
-            System.out.println("Server başlatıldı.");
+            System.out.println("Server baslatildi.");
             System.out.println("Client bekleniyor...");
             socket = server.accept();
             System.out.println("Client kabul edildi.");
             in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
             String line = "";
-            while (!line.equals("Tamamlandı.")) {
+            while (!line.equals("Tamamlandi.")) {
                 try {
                     line = in.readUTF();
                     System.out.println(line);
@@ -22,7 +22,7 @@ public class Server {
                     System.out.println(i);
                 }
             }
-            System.out.println("Bağlantı kesildi.");
+            System.out.println("Baglanti kesildi.");
             socket.close();
             in.close();
         }
