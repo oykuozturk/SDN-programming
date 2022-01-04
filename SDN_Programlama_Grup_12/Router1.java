@@ -59,7 +59,7 @@ public class Router1 {
             System.out.println( "Sender mesaj:"+ message);
             Random randomGenerator = new Random();
             int randomInt = randomGenerator.nextInt(100);
-            System.out.println("Paket için oluşturulan rastgele sayı:" + randomInt);
+            System.out.println("Paket icin olusturulan rastgele sayi:" + randomInt);
             if (randomInt > 19) {
                output2.println(message);
                String str = input2.nextLine();
