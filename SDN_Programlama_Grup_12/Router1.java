@@ -9,7 +9,7 @@ public class Router1 {
    private static final int PORT3 = 2004;
    private static Socket link2 = null;
    public static void main(String[] args) {
-      System.out.println("Port Açık");
+      System.out.println("Port Acik");
       Random sayi = new Random();
       int randomSayi = sayi.nextInt(2);
       {
@@ -17,7 +17,7 @@ public class Router1 {
             host = InetAddress.getLocalHost();
             System.out.println("Receiver IP adresini girin:");
          } catch (Exception uhEx) {
-            System.out.println("Host ID bulunamadı!");
+            System.out.println("Host ID bulunamadi!");
             System.exit(1);
          }
       }
@@ -28,7 +28,7 @@ public class Router1 {
             System.out.println("Gidilen Router 2");
          }
          catch (IOException ioEx) {
-            System.out.println( "Router bağlantı noktasına bağlanamıyor!");
+            System.out.println( "Router baglanti noktasina baglanamiyor!");
             System.exit(1);
          }
       }
@@ -39,7 +39,7 @@ public class Router1 {
             System.out.println("Gidilen Router 4");
          }
          catch (IOException ioEx) {
-            System.out.println("Router bağlantı noktasına bağlanamıyor!");
+            System.out.println("Router baglanti noktasina baglanamiyor!");
             System.exit(1);
          }
       }
@@ -77,12 +77,12 @@ public class Router1 {
       }
       finally {
          try {
-            System.out.println("Bağlantı kapatıldı.");
+            System.out.println("Baglanti kapatildi.");
             link.close();
             link2.close();
          }
          catch (IOException ioEx) {
-            System.out.println("Bağlantı kapatılamadı!");
+            System.out.println("Baglanti kapatilamadi!");
             System.exit(1);
          }
       }
