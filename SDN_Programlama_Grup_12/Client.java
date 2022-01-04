@@ -11,7 +11,7 @@ public class Client {
         
         try {
             socket = new Socket(address, port);
-            System.out.println("Baðlantý kuruldu");
+            System.out.println("Baglanti kuruldu");
 
             input = new DataInputStream(System.in);
 
@@ -24,7 +24,7 @@ public class Client {
 
         String line = "";
 
-        while (!line.equals("Tamamlandý")) {
+        while (!line.equals("Tamamlandi")) {
             try {
                 line = input.readLine();
                 out.writeUTF(line);
