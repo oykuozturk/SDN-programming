@@ -17,7 +17,7 @@ public class Router3 {
                 System.out.println("Receiver IP adresini girin:");
             }
             catch (Exception uhEx) {
-                System.out.println("Host ID bulunamadı!");
+                System.out.println("Host ID bulunamadi!");
                 System.exit(1);
             }
         }
@@ -27,7 +27,7 @@ public class Router3 {
                 System.out.println("Gidilen Client");
             }
             catch (IOException ioEx) {
-                System.out.println("Router bağlantı noktasına bağlanamıyor!");
+                System.out.println("Router baglanti noktasina baglanamiyor!");
                 System.exit(1);
             }
         handleClient();
@@ -46,7 +46,7 @@ public class Router3 {
                 System.out.println("Sender mesaj:" + message);
                 Random randomGenerator = new Random();
                 int randomInt = randomGenerator.nextInt(100);
-                System.out.println("Paket için oluşturulan rastgele sayı:" + randomInt);
+                System.out.println("Paket icin olusturulan rastgele sayi:" + randomInt);
                 if (randomInt > 19) {
                     output2.println(message);
                     String str = input2.nextLine();
@@ -64,12 +64,12 @@ public class Router3 {
         }
         finally {
             try {
-                System.out.println("Bağlantı kapatıldı.");
+                System.out.println("Baglanti kapatildi.");
                 link.close();
                 link2.close();
             }
             catch (IOException ioEx) {
-                System.out.println("Bağlantı kapatılamadı!");
+                System.out.println("Baglanti kapatilamadi!");
                 System.exit(1);
             }
         }
